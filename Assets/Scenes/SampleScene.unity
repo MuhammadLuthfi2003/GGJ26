@@ -243,7 +243,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 622cc9a3332249248bc62bf03bb07192, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGameStarted: 0
   currentGuestInCheck: {fileID: 0}
+  HP: 3
+  guestSpawner: {fileID: 2057971962}
 --- !u!4 &688141485
 Transform:
   m_ObjectHideFlags: 0

@@ -31,7 +31,7 @@ public class GuestSpawner : MonoBehaviour
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         gameManager = GameManager.Instance;
     }
@@ -39,11 +39,6 @@ public class GuestSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.P))
-        {
-            SpawnGuest();
-        }
-
         if (CurrentState == states.None)
         {
             time = 0;
@@ -100,6 +95,7 @@ public class GuestSpawner : MonoBehaviour
                 {
                     // MoveTowards is finished
                     CurrentState = states.None;
+                    VerifyGuest(true);
                 }
             }
         }
@@ -117,12 +113,13 @@ public class GuestSpawner : MonoBehaviour
                 {
                     // MoveTowards is finished
                     CurrentState = states.None;
+                    VerifyGuest(false);
                 }
             }
         }
     }
 
-    void SpawnGuest()
+    public void SpawnGuest()
     {
         // pick random element from the list
         if (guestData.Count > 0 && spawnedObject == null && CurrentState == states.None)
@@ -132,10 +129,76 @@ public class GuestSpawner : MonoBehaviour
 
             // remove
             guestData.Remove(pickedGuest);
+            print(pickedGuest);
             gameManager.currentGuestInCheck = pickedGuest;
+
 
             spawnedObject = Instantiate(pickedGuest.guestSprite, spawnLocation.position, Quaternion.identity);
             CurrentState = states.GuestIn;
         }
+        else if (guestData.Count <= 0)
+        {
+            print("finished");
+            gameManager.Win();
+        }
+    }
+
+    void VerifyGuest(bool isAccept)
+    {
+        if (!gameManager.currentGuestInCheck) { return; }
+
+        // get guest data isGuest
+        bool isGuestReal = gameManager.currentGuestInCheck.isGuest;
+
+        if (isGuestReal)
+        {
+            // correctly accept guest
+            if (isAccept) 
+            {
+                print("guest verified");
+                // spawns next guest
+                CurrentState = states.None;
+                spawnedObject = null;
+                StartCoroutine(SpawnNextGuest(1));
+            }
+            // wrongly decline guest
+            else
+            {
+                print("you declined the guest!, how could you!!!");
+                gameManager.HP--;
+
+                if (gameManager.HP > 0)
+                {
+                    CurrentState = states.None;
+                    spawnedObject = null;
+                    StartCoroutine(SpawnNextGuest(1));
+                }
+            }
+        }
+        else
+        {
+            // wrongly accept impostor
+            if (isAccept)
+            {
+                // gameover
+                gameManager.HP = 0;  
+            }
+            // correctly decline impostor
+            else
+            {
+                print("danger avoided");
+                // spawn next 
+                StartCoroutine(SpawnNextGuest(1));
+            }
+
+            CurrentState = states.None;
+            spawnedObject = null;
+        }
+    }
+
+    IEnumerator SpawnNextGuest(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        SpawnGuest();
     }
 }

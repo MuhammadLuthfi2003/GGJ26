@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public bool isGameStarted = false;
+
     public GuestData currentGuestInCheck;
+    public int HP = 3;
+
+    public GuestSpawner guestSpawner;
 
     // A public static property to access the single instance
     public static GameManager Instance { get; private set; }
@@ -28,12 +33,36 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartGame();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (HP <= 0)
+        {
+            // show killscreen
+            GameOver();
+            isGameStarted = false;
+        }
+    }
+
+    public void StartGame()
+    {
+        isGameStarted = true;
+        if (guestSpawner)
+        {
+            guestSpawner.SpawnGuest();
+        }
+    }
+
+    public void Win()
+    {
+        print("Wins");
+    }
+
+    public void GameOver()
+    {
+        print("Game Over");
     }
 }
