@@ -94,7 +94,8 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        //SFXManager.Instance.sfxSource.Stop();
+        SFXManager.Instance.sfxSource.Stop();
+        SFXManager.Instance.musicSource.volume = 0;
         SFXManager.Instance.PlaySFX("game_over");
         print("Game Over");
         isGameStarted = false;
@@ -136,6 +137,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         SFXManager.Instance.sfxSource.Stop();
+        SFXManager.Instance.musicSource.volume = 1;
         winScreen.SetActive(false);
         gameOverScreen.SetActive(false);
         guestSpawner.ResetGuestData();
