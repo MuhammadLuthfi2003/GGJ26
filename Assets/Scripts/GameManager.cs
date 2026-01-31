@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        SFXManager.Instance.PlaySFX("button_play");
         isGameStarted = true;
         titleScreen.SetActive(false);
         if (guestSpawner)
