@@ -66,29 +66,10 @@ public class GuestSpawner : MonoBehaviour
         {
             if (gameManager.currentGuestInCheck)
             {
+                time = 0;
                 if (gameManager.currentGuestInCheck.hasInvitationLetter)
                 {
                     gameManager.SpawnInvitationLetter();
-                }
-
-                // listen for inputs
-                if (Input.GetKeyDown(KeyCode.A))
-                {
-                    // reset time
-                    time = 0;
-                    // accept
-                    CurrentState = states.GuestAccepted;
-                    gameManager.DisableInvitationLetter();
-                    UIManager.Instance.CloseInvitationLetterUI();
-                }
-                else if (Input.GetKeyDown(KeyCode.D))
-                {
-                    // reset time
-                    time = 0;
-                    // decline
-                    CurrentState = states.GuestRejected;
-                    gameManager.DisableInvitationLetter();
-                    UIManager.Instance.CloseInvitationLetterUI();
                 }
             }
         }
