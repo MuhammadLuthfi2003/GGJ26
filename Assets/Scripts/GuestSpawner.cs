@@ -64,22 +64,33 @@ public class GuestSpawner : MonoBehaviour
         }
         else if (CurrentState == states.Check)
         {
-            // listen for inputs
-            if (Input.GetKeyDown(KeyCode.A))
+            if (gameManager.currentGuestInCheck)
             {
-                // reset time
-                time = 0;
-                // accept
-                CurrentState = states.GuestAccepted;
-            }
-            else if (Input.GetKeyDown(KeyCode.D))
-            {
-                // reset time
-                time = 0;
-                // decline
-                CurrentState = states.GuestRejected;
-            }
+                if (gameManager.currentGuestInCheck.hasInvitationLetter)
+                {
+                    gameManager.SpawnInvitationLetter();
+                }
 
+                // listen for inputs
+                if (Input.GetKeyDown(KeyCode.A))
+                {
+                    // reset time
+                    time = 0;
+                    // accept
+                    CurrentState = states.GuestAccepted;
+                    gameManager.DisableInvitationLetter();
+                    UIManager.Instance.CloseInvitationLetterUI();
+                }
+                else if (Input.GetKeyDown(KeyCode.D))
+                {
+                    // reset time
+                    time = 0;
+                    // decline
+                    CurrentState = states.GuestRejected;
+                    gameManager.DisableInvitationLetter();
+                    UIManager.Instance.CloseInvitationLetterUI();
+                }
+            }
         }
         else if (CurrentState == states.GuestAccepted)
         {
@@ -128,12 +139,13 @@ public class GuestSpawner : MonoBehaviour
             GuestData pickedGuest = guestData[randNum];
 
             // remove
-            guestData.Remove(pickedGuest);
-            print(pickedGuest);
             gameManager.currentGuestInCheck = pickedGuest;
 
 
             spawnedObject = Instantiate(pickedGuest.guestSprite, spawnLocation.position, Quaternion.identity);
+            gameManager.SetInvitationLetterName(gameManager.currentGuestInCheck.name);
+            guestData.Remove(pickedGuest);
+
             CurrentState = states.GuestIn;
         }
         else if (guestData.Count <= 0)

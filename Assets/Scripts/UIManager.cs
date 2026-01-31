@@ -7,6 +7,23 @@ public class UIManager : MonoBehaviour
     public GameObject GuestListUI;
     public GameObject InvitationLetterUI;
 
+    // A public static property to access the single instance
+    public static UIManager Instance { get; private set; }
+    void Awake()
+    {
+        // Check if an instance already exists
+        if (Instance != null && Instance != this)
+        {
+            // If so, destroy this new object
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            // Otherwise, set this object as the single instance
+            Instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {

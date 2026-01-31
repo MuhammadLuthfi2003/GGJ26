@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guestName: Bahlul
   isGuest: 0
+  hasInvitationLetter: 1
   guestSprite: {fileID: 8258303396370347598, guid: 36f49ae5024b20f44881a6725a97faf2, type: 3}
   letterSprite: {fileID: 1314717677596520804, guid: 86bd80be6d6e2d748a1692a399b33141, type: 3}

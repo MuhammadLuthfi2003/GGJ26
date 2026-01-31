@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   guestName: Jokowi
   isGuest: 1
+  hasInvitationLetter: 1
   guestSprite: {fileID: 5855098448310157372, guid: bdfa02adc9dbcd7478e5e744d76900e8, type: 3}
   letterSprite: {fileID: 6618682859443720001, guid: 6185edde33bb4e94da109c187284ff73, type: 3}

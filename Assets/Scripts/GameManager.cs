@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -10,6 +11,10 @@ public class GameManager : MonoBehaviour
     public int HP = 3;
 
     public GuestSpawner guestSpawner;
+
+    [Header("Display Invitation Letter")]
+    public GameObject invitationLetterObject;
+    public TextMeshProUGUI invitationLetterText;
 
     // A public static property to access the single instance
     public static GameManager Instance { get; private set; }
@@ -54,6 +59,21 @@ public class GameManager : MonoBehaviour
         {
             guestSpawner.SpawnGuest();
         }
+    }
+
+    public void SpawnInvitationLetter()
+    {
+        invitationLetterObject.SetActive(true);
+    }
+
+    public void DisableInvitationLetter()
+    {
+        invitationLetterObject.SetActive(false);
+    }
+
+    public void SetInvitationLetterName(string guestName)
+    {
+        invitationLetterText.text = guestName;
     }
 
     public void Win()

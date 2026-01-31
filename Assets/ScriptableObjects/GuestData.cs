@@ -7,6 +7,7 @@ public class GuestData : ScriptableObject
 {
     public string guestName;
     public bool isGuest; // if false, then they are a ghost
+    public bool hasInvitationLetter; // if false, dont show invitation letter
 
     // object
     public GameObject guestSprite;
