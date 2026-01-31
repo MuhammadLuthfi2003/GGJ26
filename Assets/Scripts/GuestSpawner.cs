@@ -132,9 +132,8 @@ public class GuestSpawner : MonoBehaviour
             // remove
             gameManager.currentGuestInCheck = pickedGuest;
 
-
             spawnedObject = Instantiate(pickedGuest.guestSprite, spawnLocation.position, Quaternion.identity);
-            gameManager.SetInvitationLetterName(gameManager.currentGuestInCheck.name);
+            gameManager.SetInvitationLetterName(gameManager.currentGuestInCheck.guestName);
             guestData.Remove(pickedGuest);
 
             CurrentState = states.GuestIn;
