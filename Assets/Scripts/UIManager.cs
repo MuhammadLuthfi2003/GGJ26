@@ -42,11 +42,13 @@ public class UIManager : MonoBehaviour
     public void OpenGuestListUI()
     {
         GuestListUI.SetActive(true);
+        SFXManager.Instance.PlaySFX("open_letter");
     }
 
     public void OpenInvitationLetterUI()
     {
         InvitationLetterUI.SetActive(true);
+        SFXManager.Instance.PlaySFX("open_letter");
     }
 
     public void CloseGuestList()

@@ -26,7 +26,7 @@ public class SFXManager : MonoBehaviour
 
     public void Start()
     {
-        PlaySFX("ambience suara musik indoor muffle ke luar security");
+        PlayMusic("main_music");
     }
 
 

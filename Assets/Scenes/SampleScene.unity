@@ -2371,7 +2371,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -4132,6 +4132,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e3bbdd0cfcf8fc2479f9b3bba242fe66, type: 2}
   - {fileID: 11400000, guid: 7dffc311f781b514390ab3b7134e41d9, type: 2}
   speed: 5
+  fire: {fileID: 7024378925700683376, guid: 0446763ca0293154b802338409789d92, type: 3}
   CurrentState: 0
   time: 0
 --- !u!1 &2080205536
@@ -4384,6 +4385,7 @@ GameObject:
   - component: {fileID: 2097447829}
   - component: {fileID: 2097447830}
   - component: {fileID: 2097447831}
+  - component: {fileID: 2097447832}
   m_Layer: 0
   m_Name: SFXManager
   m_TagString: Untagged
@@ -4420,18 +4422,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a97658922bc83ef4094c81affc842d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSounds: []
-  sfxSounds:
-  - SFXname: ambience ruangan kosong + noise komputer
-    clip: {fileID: 8300000, guid: 8fb216740c1ad9e4e9b9e492e657c663, type: 3}
-  - SFXname: ambience suara musik indoor muffle ke luar security
+  musicSounds:
+  - SFXname: main_music
     clip: {fileID: 8300000, guid: 5e451a7ab06ed824b9eaf38bbdaf357b, type: 3}
+  sfxSounds:
   - SFXname: ambience_tamu_deket_sekuriti
     clip: {fileID: 8300000, guid: 2a2042173fa39e242a2b737be89ddc26, type: 3}
-  - SFXname: ambil_salib
+  - SFXname: cross
     clip: {fileID: 8300000, guid: 7cba5ba2fa49b1b4fbe21c3ca53c0539, type: 3}
-  - SFXname: angkat_telfon
-    clip: {fileID: 8300000, guid: cad92027ecb03d848975570351ac8da1, type: 3}
   - SFXname: button_masuk
     clip: {fileID: 8300000, guid: 5c1ab1c6da1b82f449e0a84855692616, type: 3}
   - SFXname: button_play
@@ -4444,18 +4442,24 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 0ecb22d139d2de346aad4298a9991164, type: 3}
   - SFXname: iblis_ditelfon
     clip: {fileID: 8300000, guid: 21097d14f7b6a6d49b00298370d3aa67, type: 3}
-  - SFXname: iblis_kena_salib_2
-    clip: {fileID: 8300000, guid: 60ca5bc1d16b9204fa8b199373f73a13, type: 3}
   - SFXname: iblis_kena_salib
     clip: {fileID: 8300000, guid: c566784eaea0a7c4d8fafa46e09b654f, type: 3}
-  - SFXname: inspect_surat_undangan_buku_tamu
+  - SFXname: open_letter
     clip: {fileID: 8300000, guid: 29f3c2fd932259e47bebbe30dbc03a90, type: 3}
-  - SFXname: langkah_kaki_fix
+  - SFXname: langkah_kaki
     clip: {fileID: 8300000, guid: 4faf9ed2fa011414faea26a79ece10bb, type: 3}
-  - SFXname: tamu_cewe_muncul
+  - SFXname: tamu_cewe
     clip: {fileID: 8300000, guid: 58630da2160f1d041a75d28fb0a55026, type: 3}
-  - SFXname: tamu_cowo_muncul
+  - SFXname: tamu_cowo
     clip: {fileID: 8300000, guid: 31bf1bd04be960e4dae6c142c64c45da, type: 3}
+  - SFXname: stamp
+    clip: {fileID: 8300000, guid: a683cf2f61f4c0d48bfb85ade6f75f2d, type: 3}
+  - SFXname: tung_sahur
+    clip: {fileID: 8300000, guid: fe31e52cf9ea3494caa7c58884dc884f, type: 3}
+  - SFXname: fire
+    clip: {fileID: 8300000, guid: 6976a0393c0b9264190f1f563374544c, type: 3}
+  - SFXname: warning
+    clip: {fileID: 8300000, guid: fa2ecfddba6850544b3202859a21bff9, type: 3}
   musicSource: {fileID: 1156532057}
   sfxSource: {fileID: 1481453772}
 --- !u!82 &2097447831
@@ -4554,6 +4558,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &2097447832
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097447828}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 862ce94e8bc6a4146b820280151fe4e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2109354877
 GameObject:
   m_ObjectHideFlags: 0

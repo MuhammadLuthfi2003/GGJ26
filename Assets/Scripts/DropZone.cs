@@ -15,20 +15,19 @@ public class DropZone : MonoBehaviour, IDropHandler
         {
             if (draggable == null) return;
 
-            Debug.Log("Dropped on zone: " + draggable.gameObject.name);
-            Debug.Log(draggable.gameObject.tag);
-
             if (draggable.gameObject.CompareTag("Stamp"))
             {
                 gameManager.guestSpawner.CurrentState = GuestSpawner.states.GuestAccepted;
                 gameManager.DisableInvitationLetter();
                 UIManager.Instance.CloseInvitationLetterUI();
+                SFXManager.Instance.PlaySFX("stamp");
             }
             else if (draggable.gameObject.CompareTag("Cross"))
             {
                 gameManager.guestSpawner.CurrentState = GuestSpawner.states.GuestRejected;
                 gameManager.DisableInvitationLetter();
                 UIManager.Instance.CloseInvitationLetterUI();
+                //SFXManager.Instance.PlaySFX("cross");
             }
 
             //draggable.transform.SetParent(transform);

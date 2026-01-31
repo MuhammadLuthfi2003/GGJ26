@@ -15,5 +15,6 @@ MonoBehaviour:
   guestName: Guroza Yamada
   isGuest: 1
   hasInvitationLetter: 1
+  isFemale: 1
   guestSprite: {fileID: 6663686174698001403, guid: 64fb6b9e2e755224da63d430eec7793d, type: 3}
   letterSprite: {fileID: 0}

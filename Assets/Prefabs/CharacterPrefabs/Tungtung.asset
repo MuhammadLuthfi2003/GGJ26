@@ -15,5 +15,7 @@ MonoBehaviour:
   guestName: Tung Tung
   isGuest: 0
   hasInvitationLetter: 0
+  isFemale: 0
+  isTung: 1
   guestSprite: {fileID: 7721403414495320650, guid: a168b5cc8709e964684ed5c3e11ab766, type: 3}
   letterSprite: {fileID: 0}

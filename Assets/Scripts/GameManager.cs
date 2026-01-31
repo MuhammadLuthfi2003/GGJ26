@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        SFXManager.Instance.sfxSource.Stop();
+        //SFXManager.Instance.sfxSource.Stop();
         SFXManager.Instance.PlaySFX("game_over");
         print("Game Over");
         isGameStarted = false;
@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour
 
     public void ShowWarning()
     {
+        SFXManager.Instance.PlaySFX("warning");
         switch(HP)
         {
             case 0:

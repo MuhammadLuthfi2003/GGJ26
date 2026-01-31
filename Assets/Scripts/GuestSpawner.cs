@@ -18,6 +18,8 @@ public class GuestSpawner : MonoBehaviour
 
     private GameObject spawnedObject;
 
+    public GameObject fire;
+
     public enum states
     {
         None,
@@ -30,6 +32,7 @@ public class GuestSpawner : MonoBehaviour
     public states CurrentState = states.None;
     public float time = 0;
 
+    private bool hasRun = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -72,6 +75,7 @@ public class GuestSpawner : MonoBehaviour
                 if (gameManager.currentGuestInCheck.hasInvitationLetter)
                 {
                     gameManager.SpawnInvitationLetter();
+                    
                 }
             }
         }
@@ -79,6 +83,23 @@ public class GuestSpawner : MonoBehaviour
         {
             if (gameManager.currentGuestInCheck && spawnedObject)
             {
+                if (!hasRun)
+                {
+                    if (gameManager.currentGuestInCheck.isFemale)
+                    {
+                        SFXManager.Instance.PlaySFX("tamu_cewe");
+                    }
+                    else if (gameManager.currentGuestInCheck.isTung)
+                    {
+                        SFXManager.Instance.PlaySFX("tung_sahur");
+                    }
+                    else
+                    {
+                        SFXManager.Instance.PlaySFX("tamu_cowo");
+                    }
+                    hasRun = true;
+                }
+
                 time += Time.deltaTime;
                 spawnedObject.transform.position = Vector3.MoveTowards(
                     spawnedObject.transform.position,
@@ -101,6 +122,28 @@ public class GuestSpawner : MonoBehaviour
         {
             if (gameManager.currentGuestInCheck && spawnedObject)
             {
+                if (!hasRun)
+                {
+                    if (!gameManager.currentGuestInCheck.isGuest)
+                    {
+                        SpawnFire();
+                        SFXManager.Instance.PlaySFX("fire");
+                        SFXManager.Instance.PlaySFX("iblis_kena_salib");
+                    }
+                    else
+                    {
+                        if (gameManager.currentGuestInCheck.isFemale)
+                        {
+                            SFXManager.Instance.PlaySFX("cewe_kena_salib");
+                        }
+                        else
+                        {
+                            SFXManager.Instance.PlaySFX("cowo_kena_salib");
+                        }
+                    }
+                    hasRun = true;
+                }
+
                 time += Time.deltaTime;
                 spawnedObject.transform.position = Vector3.MoveTowards(
                     spawnedObject.transform.position,
@@ -136,6 +179,19 @@ public class GuestSpawner : MonoBehaviour
             gameManager.SetInvitationLetterName(gameManager.currentGuestInCheck.guestName);
             guestData.Remove(pickedGuest);
 
+            if (gameManager.currentGuestInCheck.isFemale)
+            {
+                SFXManager.Instance.PlaySFX("tamu_cewe");
+            }
+            else if (gameManager.currentGuestInCheck.isTung)
+            {
+                SFXManager.Instance.PlaySFX("tung_sahur");
+            }
+            else
+            {
+                SFXManager.Instance.PlaySFX("tamu_cowo");
+            }
+
             CurrentState = states.GuestIn;
         }
         else if (guestData.Count <= 0)
@@ -144,8 +200,18 @@ public class GuestSpawner : MonoBehaviour
         }
     }
 
+    void SpawnFire()
+    {
+        if (spawnedObject)
+        {
+            GameObject fireobj = Instantiate(fire, spawnedObject.transform.position, Quaternion.identity);
+            fireobj.transform.parent = spawnedObject.transform;
+        }
+    }
+
     void VerifyGuest(bool isAccept)
     {
+        hasRun = false;
         if (!gameManager.currentGuestInCheck) { return; }
 
         // get guest data isGuest
@@ -189,7 +255,6 @@ public class GuestSpawner : MonoBehaviour
             // correctly decline impostor
             else
             {
-                print("danger avoided");
                 // spawn next 
                 StartCoroutine(SpawnNextGuest(1));
             }

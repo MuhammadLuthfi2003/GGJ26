@@ -43,6 +43,15 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         {
             // Difference between UI position and grab point
             dragOffset = rectTransform.position - worldPoint;
+
+            if (gameObject.CompareTag("Stamp"))
+            {
+                SFXManager.Instance.PlaySFX("stamp");
+            }
+            else if (gameObject.CompareTag("Cross"))
+            {
+                SFXManager.Instance.PlaySFX("cross");
+            }
         }
 
 
