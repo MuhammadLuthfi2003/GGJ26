@@ -4425,11 +4425,13 @@ MonoBehaviour:
   musicSounds:
   - SFXname: main_music
     clip: {fileID: 8300000, guid: 5e451a7ab06ed824b9eaf38bbdaf357b, type: 3}
+  - SFXname: title_screen
+    clip: {fileID: 8300000, guid: 5fb88ed2fc9513c48a241602d51f3988, type: 3}
   sfxSounds:
   - SFXname: ambience_tamu_deket_sekuriti
     clip: {fileID: 8300000, guid: 2a2042173fa39e242a2b737be89ddc26, type: 3}
   - SFXname: cross
-    clip: {fileID: 8300000, guid: 7cba5ba2fa49b1b4fbe21c3ca53c0539, type: 3}
+    clip: {fileID: 8300000, guid: 7c419dc43be7e7f45b18ef4337cd3d33, type: 3}
   - SFXname: button_masuk
     clip: {fileID: 8300000, guid: 5c1ab1c6da1b82f449e0a84855692616, type: 3}
   - SFXname: button_play
@@ -4445,7 +4447,7 @@ MonoBehaviour:
   - SFXname: iblis_kena_salib
     clip: {fileID: 8300000, guid: c566784eaea0a7c4d8fafa46e09b654f, type: 3}
   - SFXname: open_letter
-    clip: {fileID: 8300000, guid: 29f3c2fd932259e47bebbe30dbc03a90, type: 3}
+    clip: {fileID: 8300000, guid: 706c21933f8d5ea40bd70c1a2f325553, type: 3}
   - SFXname: langkah_kaki
     clip: {fileID: 8300000, guid: 4faf9ed2fa011414faea26a79ece10bb, type: 3}
   - SFXname: tamu_cewe
@@ -4460,6 +4462,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 6976a0393c0b9264190f1f563374544c, type: 3}
   - SFXname: warning
     clip: {fileID: 8300000, guid: fa2ecfddba6850544b3202859a21bff9, type: 3}
+  - SFXname: game_over_variation
+    clip: {fileID: 8300000, guid: 1366ca1cbcbf21e43a5870b4628fc165, type: 3}
   musicSource: {fileID: 1156532057}
   sfxSource: {fileID: 1481453772}
 --- !u!82 &2097447831

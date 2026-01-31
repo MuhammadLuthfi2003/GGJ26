@@ -231,12 +231,11 @@ public class GuestSpawner : MonoBehaviour
             // wrongly decline guest
             else
             {
-                print("you declined the guest!, how could you!!!");
                 gameManager.HP--;
+                gameManager.ShowWarning(false);
 
                 if (gameManager.HP > 0)
                 {
-                    gameManager.ShowWarning();
                     CurrentState = states.None;
                     spawnedObject = null;
                     StartCoroutine(SpawnNextGuest(1));
@@ -250,7 +249,7 @@ public class GuestSpawner : MonoBehaviour
             {
                 // gameover
                 gameManager.HP = 0;
-                gameManager.ShowWarning();
+                gameManager.ShowWarning(true);
             }
             // correctly decline impostor
             else

@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SFXManager.Instance.PlaySFX("button_play");
+        SFXManager.Instance.PlayMusic("main_music");
         isGameStarted = true;
         titleScreen.SetActive(false);
         if (guestSpawner)
@@ -97,14 +98,21 @@ public class GameManager : MonoBehaviour
         SFXManager.Instance.sfxSource.Stop();
         SFXManager.Instance.musicSource.volume = 0;
         SFXManager.Instance.PlaySFX("game_over");
-        print("Game Over");
         isGameStarted = false;
         gameOverScreen.SetActive(true);
     }
 
-    public void ShowWarning()
+    public void ShowWarning(bool isAutoGameOver)
     {
-        SFXManager.Instance.PlaySFX("warning");
+        if (isAutoGameOver)
+        {
+            SFXManager.Instance.PlaySFX("game_over_variation");
+        }
+        else
+        {
+            SFXManager.Instance.PlaySFX("warning");
+        }
+
         switch(HP)
         {
             case 0:

@@ -26,7 +26,7 @@ public class SFXManager : MonoBehaviour
 
     public void Start()
     {
-        PlayMusic("main_music");
+        PlayMusic("title_screen");
     }
 
 
