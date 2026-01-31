@@ -87,12 +87,15 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
+
         isGameStarted = false;
         winScreen.SetActive(true);
     }
 
     public void GameOver()
     {
+        SFXManager.Instance.sfxSource.Stop();
+        SFXManager.Instance.PlaySFX("game_over");
         print("Game Over");
         isGameStarted = false;
         gameOverScreen.SetActive(true);
