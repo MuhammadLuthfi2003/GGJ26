@@ -134,10 +134,12 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        SFXManager.Instance.sfxSource.Stop();
         winScreen.SetActive(false);
         gameOverScreen.SetActive(false);
         guestSpawner.ResetGuestData();
         StartGame();
+        SFXManager.Instance.PlaySFX("ambience suara musik indoor muffle ke luar security");
     }
 
     public void QuitGame()
