@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public int HP = 3;
 
     public GuestSpawner guestSpawner;
+    public SFXManager sfxManager;
 
     [Header("Display Invitation Letter")]
     public GameObject invitationLetterObject;

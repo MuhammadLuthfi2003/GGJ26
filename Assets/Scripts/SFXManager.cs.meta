@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: a97658922bc83ef4094c81affc842d8e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - speakerBGM: {instanceID: 0}
+  - laguAmbience: {fileID: 8300000, guid: 5e451a7ab06ed824b9eaf38bbdaf357b, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1667,6 +1667,7 @@ MonoBehaviour:
   currentGuestInCheck: {fileID: 0}
   HP: 3
   guestSpawner: {fileID: 2057971962}
+  sfxManager: {fileID: 0}
   invitationLetterObject: {fileID: 1094511689}
   invitationLetterText: {fileID: 6422913130516265134}
   warningLetter1: {fileID: 3468118332763347736}
@@ -2363,7 +2364,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 16.62, y: -289}
+  m_AnchoredPosition: {x: 16.619995, y: -289}
   m_SizeDelta: {x: -797.88, y: 278.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1289297616
@@ -2546,6 +2547,134 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1481453771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1481453773}
+  - component: {fileID: 1481453772}
+  m_Layer: 0
+  m_Name: SFX Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1481453772
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481453771}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1481453773
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481453771}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2097447829}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1491984627
 GameObject:
@@ -3131,7 +3260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 16.62, y: -289}
+  m_AnchoredPosition: {x: 16.619995, y: -289}
   m_SizeDelta: {x: -797.88, y: 278.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1627335225
@@ -3605,7 +3734,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 16.62, y: -289}
+  m_AnchoredPosition: {x: 16.619995, y: -289}
   m_SizeDelta: {x: -797.88, y: 278.55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1927554359
@@ -4239,6 +4368,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2092934635}
   m_CullTransparentMesh: 1
+--- !u!1 &2097447828
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2097447829}
+  - component: {fileID: 2097447830}
+  m_Layer: 0
+  m_Name: SFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2097447829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097447828}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.9683119, y: 0.47326082, z: 0.05834507}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1481453773}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2097447830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097447828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a97658922bc83ef4094c81affc842d8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxSounds:
+  - SFXname: ambience ruangan kosong + noise komputer
+    clip: {fileID: 8300000, guid: 8fb216740c1ad9e4e9b9e492e657c663, type: 3}
+  - SFXname: ambience suara musik indoor muffle ke luar security
+    clip: {fileID: 8300000, guid: 5e451a7ab06ed824b9eaf38bbdaf357b, type: 3}
+  - SFXname: ambience_tamu_deket_sekuriti
+    clip: {fileID: 8300000, guid: 2a2042173fa39e242a2b737be89ddc26, type: 3}
+  - SFXname: ambil_salib
+    clip: {fileID: 8300000, guid: 7cba5ba2fa49b1b4fbe21c3ca53c0539, type: 3}
+  - SFXname: angkat_telfon
+    clip: {fileID: 8300000, guid: cad92027ecb03d848975570351ac8da1, type: 3}
+  - SFXname: button_masuk
+    clip: {fileID: 8300000, guid: 5c1ab1c6da1b82f449e0a84855692616, type: 3}
+  - SFXname: button_play
+    clip: {fileID: 8300000, guid: bd55503fe1a809343bf5a9c06690bf28, type: 3}
+  - SFXname: cewe_kena_salib
+    clip: {fileID: 8300000, guid: 2ce76eca55f8cf24191afc173c4618ef, type: 3}
+  - SFXname: cowo_kena_salib
+    clip: {fileID: 8300000, guid: e928c1e3cc28da6488e9b23c806b437d, type: 3}
+  - SFXname: game_over
+    clip: {fileID: 8300000, guid: 0ecb22d139d2de346aad4298a9991164, type: 3}
+  - SFXname: iblis_ditelfon
+    clip: {fileID: 8300000, guid: 21097d14f7b6a6d49b00298370d3aa67, type: 3}
+  - SFXname: iblis_kena_salib_2
+    clip: {fileID: 8300000, guid: 60ca5bc1d16b9204fa8b199373f73a13, type: 3}
+  - SFXname: iblis_kena_salib
+    clip: {fileID: 8300000, guid: c566784eaea0a7c4d8fafa46e09b654f, type: 3}
+  - SFXname: inspect_surat_undangan_buku_tamu
+    clip: {fileID: 8300000, guid: 29f3c2fd932259e47bebbe30dbc03a90, type: 3}
+  - SFXname: langkah_kaki_fix
+    clip: {fileID: 8300000, guid: 4faf9ed2fa011414faea26a79ece10bb, type: 3}
+  - SFXname: tamu_cewe_muncul
+    clip: {fileID: 8300000, guid: 58630da2160f1d041a75d28fb0a55026, type: 3}
+  - SFXname: tamu_cowo_muncul
+    clip: {fileID: 8300000, guid: 31bf1bd04be960e4dae6c142c64c45da, type: 3}
+  sfxSource: {fileID: 1481453772}
 --- !u!1 &2109354877
 GameObject:
   m_ObjectHideFlags: 0
@@ -4992,3 +5202,4 @@ SceneRoots:
   - {fileID: 304403471}
   - {fileID: 690787878}
   - {fileID: 756647189}
+  - {fileID: 2097447829}
