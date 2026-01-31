@@ -88,12 +88,12 @@ public class GuestSpawner : MonoBehaviour
                 if (Vector3.Distance(spawnedObject.transform.position, endPoint.position) <= 0.1)
                 {
                     // MoveTowards is finished
-                    CurrentState = states.None;
-                    VerifyGuest(true);
-                    if (spawnedObject)
+                    if (spawnedObject != null)
                     {
                         Destroy(spawnedObject);
                     }
+                    CurrentState = states.None;
+                    VerifyGuest(true);
                 }
             }
         }
@@ -110,12 +110,12 @@ public class GuestSpawner : MonoBehaviour
                 if (Vector3.Distance(spawnedObject.transform.position, spawnLocation.position) <= 0.1)
                 {
                     // MoveTowards is finished
-                    CurrentState = states.None;
-                    VerifyGuest(false);
-                    if (spawnedObject)
+                    if (spawnedObject != null)
                     {
                         Destroy(spawnedObject);
                     }
+                    CurrentState = states.None;
+                    VerifyGuest(false);
                 }
             }
         }
