@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public GameObject GuestListUI;
     public GameObject InvitationLetterUI;
+
+    public Image DropZone;
 
     // A public static property to access the single instance
     public static UIManager Instance { get; private set; }
@@ -54,5 +57,16 @@ public class UIManager : MonoBehaviour
     public void CloseInvitationLetterUI()
     {
         InvitationLetterUI.SetActive(false);
+    }
+
+    public void setDropZoneColor()
+    {
+        DropZone.enabled = true;
+        DropZone.color = new Color(0f, 0.6586814f, 1f, 0.5f); // red, 50% transparent
+    }
+
+    public void stopDropZone()
+    {
+        DropZone.enabled = false;
     }
 }

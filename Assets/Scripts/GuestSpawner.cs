@@ -11,6 +11,7 @@ public class GuestSpawner : MonoBehaviour
     public Transform endPoint;
 
     public List<GuestData> guestData = new List<GuestData>();
+    private List<GuestData> copy;
 
     private GameManager gameManager;
     public float speed;
@@ -34,6 +35,7 @@ public class GuestSpawner : MonoBehaviour
     void Awake()
     {
         gameManager = GameManager.Instance;
+        copy = new List<GuestData>(guestData);
     }
 
     // Update is called once per frame
@@ -88,6 +90,10 @@ public class GuestSpawner : MonoBehaviour
                     // MoveTowards is finished
                     CurrentState = states.None;
                     VerifyGuest(true);
+                    if (spawnedObject)
+                    {
+                        Destroy(spawnedObject);
+                    }
                 }
             }
         }
@@ -106,6 +112,10 @@ public class GuestSpawner : MonoBehaviour
                     // MoveTowards is finished
                     CurrentState = states.None;
                     VerifyGuest(false);
+                    if (spawnedObject)
+                    {
+                        Destroy(spawnedObject);
+                    }
                 }
             }
         }
@@ -131,7 +141,6 @@ public class GuestSpawner : MonoBehaviour
         }
         else if (guestData.Count <= 0)
         {
-            print("finished");
             gameManager.Win();
         }
     }
@@ -162,6 +171,7 @@ public class GuestSpawner : MonoBehaviour
 
                 if (gameManager.HP > 0)
                 {
+                    gameManager.ShowWarning();
                     CurrentState = states.None;
                     spawnedObject = null;
                     StartCoroutine(SpawnNextGuest(1));
@@ -174,7 +184,8 @@ public class GuestSpawner : MonoBehaviour
             if (isAccept)
             {
                 // gameover
-                gameManager.HP = 0;  
+                gameManager.HP = 0;
+                gameManager.ShowWarning();
             }
             // correctly decline impostor
             else
@@ -193,5 +204,11 @@ public class GuestSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
         SpawnGuest();
+    }
+
+    public void ResetGuestData()
+    {
+        CurrentState = states.None;
+        guestData = new List<GuestData>(copy);
     }
 }

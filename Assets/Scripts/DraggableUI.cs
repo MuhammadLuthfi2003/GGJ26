@@ -44,6 +44,12 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             // Difference between UI position and grab point
             dragOffset = rectTransform.position - worldPoint;
         }
+
+
+        if (isReturnAfterDrag)
+        {
+            UIManager.Instance.setDropZoneColor();
+        }
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -65,6 +71,7 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         if (isReturnAfterDrag)
         {
             rectTransform.anchoredPosition = originalPos;
+            UIManager.Instance.stopDropZone();
         }
     }
 }

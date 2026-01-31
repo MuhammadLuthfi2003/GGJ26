@@ -16,6 +16,16 @@ public class GameManager : MonoBehaviour
     public GameObject invitationLetterObject;
     public TextMeshProUGUI invitationLetterText;
 
+    [Header("Warning Object")]
+    public GameObject warningLetter1;
+    public GameObject warningLetter2;
+    public GameObject warningLetter3;
+
+    [Header("Screen GUI")]
+    public GameObject titleScreen;
+    public GameObject gameOverScreen;
+    public GameObject winScreen;
+
     // A public static property to access the single instance
     public static GameManager Instance { get; private set; }
     void Awake()
@@ -38,26 +48,23 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartGame();
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (HP <= 0)
-        {
-            // show killscreen
-            GameOver();
-            isGameStarted = false;
-        }
+
     }
 
     public void StartGame()
     {
         isGameStarted = true;
+        titleScreen.SetActive(false);
         if (guestSpawner)
         {
             guestSpawner.SpawnGuest();
+            HP = 3;
         }
     }
 
@@ -78,11 +85,58 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
-        print("Wins");
+        isGameStarted = false;
+        winScreen.SetActive(true);
     }
 
     public void GameOver()
     {
         print("Game Over");
+        isGameStarted = false;
+        gameOverScreen.SetActive(true);
+    }
+
+    public void ShowWarning()
+    {
+        switch(HP)
+        {
+            case 0:
+                warningLetter3.SetActive(true);
+                break;
+            case 1:
+                warningLetter2.SetActive(true);
+                break;
+            case 2:
+                warningLetter1.SetActive(true);
+                break;
+        }
+    }
+
+    public void CloseWarning1()
+    {
+        warningLetter1.SetActive(false);
+    }
+    public void CloseWarning2()
+    {
+        warningLetter2.SetActive(false);
+    }
+    public void CloseWarning3()
+    {
+        warningLetter3.SetActive(false);
+
+        GameOver();
+    }
+
+    public void RestartGame()
+    {
+        winScreen.SetActive(false);
+        gameOverScreen.SetActive(false);
+        guestSpawner.ResetGuestData();
+        StartGame();
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }
