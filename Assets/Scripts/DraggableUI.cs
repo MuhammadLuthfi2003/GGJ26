@@ -10,6 +10,9 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private Camera uiCamera;
     private Vector3 dragOffset;
 
+    public bool isReturnAfterDrag = false;
+    private Vector2 originalPos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +21,7 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
         // Important for World Space canvas
         uiCamera = canvas.worldCamera;
+        originalPos = rectTransform.anchoredPosition;
     }
 
     // Update is called once per frame
@@ -58,5 +62,9 @@ public class DraggableUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public void OnEndDrag(PointerEventData eventData)
     {
         // Optional: snap / clamp / validate position
+        if (isReturnAfterDrag)
+        {
+            rectTransform.anchoredPosition = originalPos;
+        }
     }
 }
