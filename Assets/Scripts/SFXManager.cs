@@ -7,8 +7,8 @@ public class SFXManager : MonoBehaviour
 {
     public static SFXManager Instance;
 
-    public Sound[] sfxSounds;
-    public AudioSource sfxSource;
+    public Sound[] musicSounds, sfxSounds;
+    public AudioSource musicSource, sfxSource;
 
     private void Awake()
     {
@@ -29,6 +29,23 @@ public class SFXManager : MonoBehaviour
         PlaySFX("ambience suara musik indoor muffle ke luar security");
     }
 
+
+
+    public void PlayMusic(string name)
+    {
+
+        Sound s = Array.Find(musicSounds, x => x.SFXname == name);
+
+        if (s == null)
+        {
+            Debug.Log("Sound Not Found");
+        }
+        else
+        {
+            musicSource.clip = s.clip;
+            musicSource.Play();
+        }
+    }
     public void PlaySFX(string name)
     {
 

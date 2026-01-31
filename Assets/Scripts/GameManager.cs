@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        SFXManager.Instance.PlaySFX("button_play");
         isGameStarted = true;
         titleScreen.SetActive(false);
         if (guestSpawner)
@@ -86,12 +87,15 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
+
         isGameStarted = false;
         winScreen.SetActive(true);
     }
 
     public void GameOver()
     {
+        SFXManager.Instance.sfxSource.Stop();
+        SFXManager.Instance.PlaySFX("game_over");
         print("Game Over");
         isGameStarted = false;
         gameOverScreen.SetActive(true);
@@ -130,10 +134,12 @@ public class GameManager : MonoBehaviour
 
     public void RestartGame()
     {
+        SFXManager.Instance.sfxSource.Stop();
         winScreen.SetActive(false);
         gameOverScreen.SetActive(false);
         guestSpawner.ResetGuestData();
         StartGame();
+        SFXManager.Instance.PlaySFX("ambience suara musik indoor muffle ke luar security");
     }
 
     public void QuitGame()
